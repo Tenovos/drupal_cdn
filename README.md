@@ -1,1 +1,1 @@
-# drupal_import_cdn
+# drupal_cdn
