@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/aws.xml
+/.idea/drupal_import_cdn.iml
+/.idea/encodings.xml
+/.idea/modules.xml
+/.idea/vcs.xml

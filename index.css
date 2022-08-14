@@ -1,0 +1,132 @@
+#tmwi-in-upload-ui {
+    margin: 1.2em auto;
+    text-align: center;
+}
+
+#tmwi-in-upload-ui .row1 {
+    margin-bottom: .5em;
+}
+
+#tmwi-media-new-panel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 999;
+    background-color: rgb(241, 241, 241);
+    text-align: left;
+    box-sizing: border-box;
+    padding: 2em;
+}
+
+.media-modal-content #tmwi-media-new-panel {
+    background-color: white;
+}
+
+#tmwi-urls-label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+#tmwi-urls {
+    width: 100%;
+}
+
+#tmwi-error {
+    color: red;
+}
+
+#tmwi-properties {
+    margin-top: 1.5em;
+}
+
+#tmwi-properties label {
+    margin-right: 1em;
+}
+
+#tmwi-width {
+    margin-right: 2.5em;
+    width: 6em;
+}
+
+#tmwi-height {
+    margin-right: 7em;
+    width: 6em;
+}
+
+#tmwi-type {
+    width: 17em;
+}
+
+#tmwi-buttons-row {
+    margin-top: 1.5em;
+    text-align: right;
+}
+
+#tmwi-buttons-row .spinner {
+    margin-top: 4px;
+    margin-right: 2em;
+    float: none;
+    visibility: hidden;
+}
+
+#tmwi-clear {
+    margin-right: 2.3em;
+}
+
+#tmwi-add {
+    margin-right: 1.5em;
+}
+
+
+
+
+
+#tenovos-media-app{
+    height: 86vh;
+}
+
+.appWrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.appWrapper img {
+    border: unset;
+}
+
+.appWrapper p {
+    font-size: unset;
+    line-height: unset;
+}
+
+.appWrapper input, select, textarea {
+    padding: unset;
+    line-height: unset;
+    min-height: unset;
+
+    box-shadow: unset;
+    border-radius: unset;
+    border: unset;
+    border-width: 0px;
+    background-color: unset;
+
+    color: var(--defaultText);
+    padding-bottom: .5rem;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: var(--secondary);
+}
+
+.appWrapper *:focus {
+    box-shadow: unset !important;
+}
+
+.appWrapper input:focus, select:focus, textarea:focus {
+    border-color: var(--secondary) !important;
+    outline: unset !important;
+}
+
+
