@@ -7,5 +7,27 @@ $(function() {
     // window.ENABLE_UPLOAD = true
     console.log(drupalSettings.remote_image); // value
 
+    try {
+        
+        let mainDiv = document.getElementsByClassName("help")[0].parentElement
+
+        // <div class="appWrapper"><div id="app"></div></div>
+
+        let appWrapperDiv = document.createElement('div')
+        appWrapperDiv.class='appWrapper'
+
+        let appDiv = document.createElement('div')
+        appDiv.id = 'app'
+
+
+        appWrapperDiv.appendChild(appDiv)
+        mainDiv.appendChild(appWrapperDiv)
+
+        console.log( "DIVs Created" )
+        
+    } catch (e) {
+        console.log(`Problem in enabling StoryLink .. ${e}`)
+    }
+
 
 });
