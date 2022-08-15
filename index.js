@@ -19,11 +19,92 @@ $(function() {
         let appDiv = document.createElement('div')
         appDiv.id = 'app'
 
-
         appWrapperDiv.appendChild(appDiv)
         mainDiv.appendChild(appWrapperDiv)
 
         console.log( "DIVs Created" )
+
+        $.loadScript('https://extensions.tenovos.io/storylink/aem/app.latest.js', {'charset': 'UTF-8', 'lazyLoad': true})
+        .done(function () {
+
+            // Setup the events
+            console.log('Setting up the Event Bus')
+            let eventBus = {}
+            try {
+                let vueInstance = document.getElementById('app').__vue__
+                eventBus = vueInstance.$store.getters.eventBus
+            } catch (e){
+                console.error ('Problem in setting up the event bus ..'+e)
+            }
+
+            // Setup the events
+            console.log('Setting up the event listeners')
+            if (eventBus && eventBus.$on) try {
+                // eventBus.$on('ASSET_SELECTED',(eventPayload) => {
+                // 	console.log('Event called: ASSET_SELECTED')
+                // 	console.log(eventPayload)
+                // })
+                eventBus.$on('ASSET_CLICKED',(eventPayload) => {
+                    console.log('Event called: ASSET_CLICKED')
+                    console.log(eventPayload)
+
+                    if (!eventPayload || !eventPayload.renditions) console.error('No Renditions found')
+                    debugger
+
+                    var postData = {
+                        'mediaList': [
+                            {
+                                url: eventPayload.renditions.fpo || eventPayload.renditions.mezzaninePreview,
+                                guid: eventPayload.objectId,
+                            },
+                        ]
+                    }
+
+                    /*
+                    let tmp3 = wp.media.post( 'add_tenovos_media_without_import', postData )
+                        .done((resp)=>{
+                            console.log(resp)
+
+                            let vueInstance = document.getElementById('app').__vue__
+                            if (resp.failed_urls && resp.failed_urls.length){
+                                if (resp.failed_urls[0].includes(' -- ')) { 
+                                    let tmp = resp.failed_urls[0].split(' -- ')
+                                    vueInstance?.$store?.dispatch('notificationMessage',{ 
+                                        message: `Media already exists with ID ${tmp[0]}`,
+                                        isError: true 
+                                    })
+                                } else vueInstance?.$store?.dispatch('notificationMessage',{
+                                    message: `Failed to add from url [${resp.failed_urls[0]}]`, 
+                                    isError: true
+                                })
+
+                            } else {
+                                vueInstance?.$store?.dispatch('notificationMessage', {
+                                    message: 'Media added successfully' 
+                                })
+                            }
+                        })
+                        .fail((error)=>{
+                            let vueInstance = document.getElementById('app').__vue__
+                            vueInstance?.$store?.dispatch('notificationMessage',{
+                                message: `Failed to add media .. ${error}`, 
+                                isError: true
+                            })
+                        })
+                    */
+                })
+
+
+
+            } catch (e){
+                console.error ('Problem in setting up the event listeners ..'+e)
+            }
+
+            console.log('Setup Completed')
+            
+        });
+
+
         
     } catch (e) {
         console.log(`Problem in enabling StoryLink .. ${e}`)
